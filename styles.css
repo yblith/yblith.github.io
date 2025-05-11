@@ -1,0 +1,18 @@
+body {
+  font-family: sans-serif;
+  padding: 1rem;
+  max-width: 600px;
+  margin: auto;
+}
+
+input {
+  margin-right: 0.5rem;
+}
+
+#log {
+  margin-top: 1rem;
+}
+
+.entry {
+  margin-bottom: 0.5rem;
+}
