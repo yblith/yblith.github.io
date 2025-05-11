@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Kalorien- und Protein-Tracker</title>
+  <style>
+    body { font-family: sans-serif; max-width: 600px; margin: auto; padding: 2em; background: #f9f9f9; }
+    h1 { text-align: center; }
+    input, button, select { padding: 0.5em; margin: 0.2em 0; width: 100%; }
+    .meal { margin-bottom: 1em; }
+    .summary { background: #e0ffe0; padding: 1em; margin-top: 1em; border-radius: 8px; }
+    .delete-button { float: right; color: red; background: none; border: none; cursor: pointer; }
+  </style>
+</head>
+<body>
+<h1>Kalorien- & Proteintracker</h1>
+
+<div>
+  <label>Ziel-Kalorien:</label>
+  <input id="targetKcal" type="number" placeholder="z. B. 2000">
+  <label>Ziel-Protein (g):</label>
+  <input id="targetProtein" type="number" placeholder="z. B. 120">
+  <button onclick="saveTargets()">Ziele setzen</button>
+</div>
+
+<hr>
+
+<div class="meal">
+  <label>Mahlzeit:</label>
+  <input id="mealName" placeholder="z. B. Frühstück, Shake…">
+  <label>Kalorien:</label>
+  <input id="mealKcal" type="number">
+  <label>Protein (g):</label>
+  <input id="mealProtein" type="number">
+  <button onclick="addMeal()">Hinzufügen</button>
+</div>
+
+<div>
+  <label>Standard-Snack auswählen:</label>
+  <select id="presetSelect">
+    <option value="">-- Bitte wählen --</option>
+  </select>
+  <button onclick="addPreset()">Snack hinzufügen</button>
+</div>
+
+<h3>Heutige Einträge:</h3>
+<ul id="mealList"></ul>
+
+<div class="summary">
+  <p><strong>Verbrauchte Kalorien:</strong> <span id="usedKcal">0</span> / <span id="goalKcal">–</span></p>
+  <p><strong>Verbrauchtes Protein:</strong> <span id="usedProtein">0</span> g / <span id="goalProtein">–</span> g</p>
+  <p><strong>Kalorien übrig:</strong> <span id="remainingKcal">–</span></p>
+  <p><strong>Protein übrig:</strong> <span id="remainingProtein">–</span> g</p>
+</div>
+
+<script>
+  let meals = JSON.parse(localStorage.getItem("meals") || "[]");
+  let targets = JSON.parse(localStorage.getItem("targets") || "{\"kcal\":0,\"protein\":0}");
+  let presets = JSON.parse(localStorage.getItem("presets") || "[]");
+
+  function saveTargets() {
+    targets.kcal = parseInt(document.getElementById("targetKcal").value) || 0;
+    targets.protein = parseInt(document.getElementById("targetProtein").value) || 0;
+    localStorage.setItem("targets", JSON.stringify(targets));
+    updateDisplay();
+  }
+
+  function addMeal(name, kcal, protein) {
+    if (!name) {
+      name = document.getElementById("mealName").value || "Mahlzeit";
+      kcal = parseInt(document.getElementById("mealKcal").value) || 0;
+      protein = parseInt(document.getElementById("mealProtein").value) || 0;
+    }
+    meals.push({ name, kcal, protein });
+    localStorage.setItem("meals", JSON.stringify(meals));
+    updateDisplay();
+    document.getElementById("mealName").value = "";
+    document.getElementById("mealKcal").value = "";
+    document.getElementById("mealProtein").value = "";
+  }
+
+  function deleteMeal(index) {
+    meals.splice(index, 1);
+    localStorage.setItem("meals", JSON.stringify(meals));
+    updateDisplay();
+  }
+
+  function addPreset() {
+    const select = document.getElementById("presetSelect");
+    const selected = select.value;
+    if (!selected) return;
+    const preset = presets.find(p => p.name === selected);
+    if (preset) {
+      addMeal(preset.name, preset.kcal, preset.protein);
+    }
+  }
+
+  function updatePresetList() {
+    const select = document.getElementById("presetSelect");
+    select.innerHTML = '<option value="">-- Bitte wählen --</option>';
+    presets.forEach(p => {
+      const option = document.createElement("option");
+      option.value = p.name;
+      option.textContent = `${p.name} (${p.kcal} kcal, ${p.protein}g)`;
+      select.appendChild(option);
+    });
+  }
+
+  function updateDisplay() {
+    const list = document.getElementById("mealList");
+    list.innerHTML = "";
+    let usedKcal = 0;
+    let usedProtein = 0;
+
+    meals.forEach((meal, index) => {
+      usedKcal += meal.kcal;
+      usedProtein += meal.protein;
+      const li = document.createElement("li");
+      li.textContent = `${meal.name}: ${meal.kcal} kcal, ${meal.protein}g Protein`;
+      const del = document.createElement("button");
+      del.textContent = "×";
+      del.className = "delete-button";
+      del.onclick = () => deleteMeal(index);
+      li.appendChild(del);
+      list.appendChild(li);
+    });
+
+    document.getElementById("usedKcal").textContent = usedKcal;
+    document.getElementById("usedProtein").textContent = usedProtein;
+    document.getElementById("goalKcal").textContent = targets.kcal;
+    document.getElementById("goalProtein").textContent = targets.protein;
+    document.getElementById("remainingKcal").textContent = targets.kcal - usedKcal;
+    document.getElementById("remainingProtein").textContent = targets.protein - usedProtein;
+  }
+
+  // Initial Presets Beispiel
+  if (!localStorage.getItem("presets")) {
+    presets = [
+      { name: "Joghurt mit Haferflocken", kcal: 220, protein: 14 },
+      { name: "Harzer Käse 100g", kcal: 125, protein: 30 }
+    ];
+    localStorage.setItem("presets", JSON.stringify(presets));
+  }
+
+  updatePresetList();
+  updateDisplay();
+</script>
+</body>
+</html>
