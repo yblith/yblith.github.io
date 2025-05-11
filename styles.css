@@ -1,18 +1,64 @@
 body {
-  font-family: sans-serif;
-  padding: 1rem;
-  max-width: 600px;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 20px;
+  max-width: 900px;
   margin: auto;
+  background-color: #f4f4f9;
 }
 
-input {
-  margin-right: 0.5rem;
+h1 {
+  text-align: center;
 }
 
-#log {
-  margin-top: 1rem;
+section {
+  margin-bottom: 30px;
 }
 
-.entry {
-  margin-bottom: 0.5rem;
+h2 {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+h3 {
+  margin: 10px 0;
+}
+
+input[type="number"], input[type="text"] {
+  padding: 10px;
+  margin: 5px 0;
+  width: 100%;
+  max-width: 300px;
+  display: block;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+#entries {
+  margin-top: 20px;
+}
+
+.meal {
+  margin-bottom: 20px;
+}
+
+#standard-snack-list {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #f1f1f1;
+  border-radius: 5px;
 }

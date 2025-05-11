@@ -6,15 +6,64 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Daily Tracker</h1>
+  <h1>Calorie & Protein Tracker</h1>
 
-  <form id="entry-form">
-    <input type="number" id="calories" placeholder="Calories" required>
-    <input type="number" id="protein" placeholder="Protein (g)" required>
-    <button type="submit">Add</button>
-  </form>
+  <!-- Daily Goal Section -->
+  <section id="goals">
+    <h2>Set Your Daily Goals</h2>
+    <label for="daily-calories">Calories Goal:</label>
+    <input type="number" id="daily-calories" placeholder="Enter your daily calorie goal" required>
+    
+    <label for="daily-protein">Protein Goal (g):</label>
+    <input type="number" id="daily-protein" placeholder="Enter your daily protein goal" required>
+  </section>
 
-  <div id="log"></div>
+  <!-- Meals Section -->
+  <section id="meals">
+    <h2>Track Your Meals</h2>
+    <div class="meal">
+      <h3>Breakfast</h3>
+      <input type="number" id="breakfast-calories" placeholder="Calories" required>
+      <input type="number" id="breakfast-protein" placeholder="Protein (g)" required>
+    </div>
+
+    <div class="meal">
+      <h3>Lunch</h3>
+      <input type="number" id="lunch-calories" placeholder="Calories" required>
+      <input type="number" id="lunch-protein" placeholder="Protein (g)" required>
+    </div>
+
+    <div class="meal">
+      <h3>Dinner</h3>
+      <input type="number" id="dinner-calories" placeholder="Calories" required>
+      <input type="number" id="dinner-protein" placeholder="Protein (g)" required>
+    </div>
+
+    <div class="meal">
+      <h3>Snacks</h3>
+      <input type="number" id="snacks-calories" placeholder="Calories" required>
+      <input type="number" id="snacks-protein" placeholder="Protein (g)" required>
+    </div>
+  </section>
+
+  <!-- Standard Snacks Section -->
+  <section id="standard-snacks">
+    <h2>Standard Snacks</h2>
+    <label for="snack-name">Snack Name:</label>
+    <input type="text" id="snack-name" placeholder="Enter snack name">
+    <input type="number" id="snack-calories" placeholder="Calories" required>
+    <input type="number" id="snack-protein" placeholder="Protein (g)" required>
+    <button id="add-snack">Add Snack</button>
+
+    <div id="standard-snack-list"></div>
+  </section>
+
+  <!-- Log Section -->
+  <section id="log">
+    <h2>Daily Log</h2>
+    <div id="entries"></div>
+  </section>
+
   <button id="clear-btn">Clear All</button>
 
   <script src="app.js"></script>
