@@ -1,0 +1,72 @@
+name: Deploy Next.js to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'src/**'
+      - 'public/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'next.config.js'
+      - '.nojekyll'
+      - 'eslint.config.mjs'
+      # Add the workflow file itself, so changes to the workflow trigger it.
+      - '.github/workflows/deploy.yml'
+      # IMPORTANT: Do NOT add paths that are modified by this workflow's deploy step (e.g., root HTML/JS/CSS files)
+      # unless they are also part of the source, to avoid infinite loops.
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Required to push to the repository
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # Specify your project's Node.js version
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Next.js application
+        run: npm run build # This should generate the 'out/' directory
+
+      - name: Deploy to GitHub Pages root
+        run: |
+          if [ ! -d "out" ] || [ -z "$(ls -A out)" ]; then
+            echo "Build output directory 'out/' is empty or does not exist. Skipping deployment."
+            exit 1 # Fail the job if 'out' is not as expected
+          fi
+
+          echo "Copying build output from out/ to repository root..."
+          # -R for recursive, -f to force overwrite, out/. copies contents of out
+          cp -R -f out/. .
+
+          echo "Configuring Git..."
+          git config --global user.name "GitHub Actions Bot"
+          git config --global user.email "github-actions-bot@users.noreply.github.com"
+          
+          echo "Staging changes..."
+          git add . # Stage all changes resulting from the copy
+
+          echo "Checking for changes to commit..."
+          if git diff --staged --quiet; then
+            echo "No changes to commit from build output."
+          else
+            echo "Committing changes..."
+            # The [skip ci] in the commit message is crucial
+            git commit -m "Deploy: Update static site from build [skip ci]"
+            
+            echo "Pushing changes..."
+            git push origin main
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
