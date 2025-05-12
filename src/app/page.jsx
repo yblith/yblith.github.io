@@ -1,11 +1,12 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-// import { DAILY_GOALS } from '../types/index.js'; // DAILY_GOALS is not used
 import { getDailyLog, saveDailyLog } from '../lib/storage.js';
+import { getDailyGoals, saveDailyGoals } from '../types/index.js'; // Import new goal functions
 import MealItemForm from './components/MealItemForm';
 import MealLog from './components/MealLog';
 import DailyProgress from './components/DailyProgress';
+import GoalSetter from './components/GoalSetter'; // Import GoalSetter component
 import Link from 'next/link';
 
 // Helper to get today's date in YYYY-MM-DD format
@@ -17,13 +18,17 @@ const getTodayDateString = () => {
 export default function HomePage() {
   const [currentDate, setCurrentDate] = useState(getTodayDateString());
   const [dailyLog, setDailyLog] = useState(null);
+  const [dailyGoals, setDailyGoals] = useState({ calories: 0, protein: 0 }); // Add state for dailyGoals
+
+  useEffect(() => {
+    setDailyGoals(getDailyGoals()); // Load goals on component mount
+  }, []);
 
   useEffect(() => {
     const log = getDailyLog(currentDate);
     if (log) {
       setDailyLog(log);
     } else {
-      // Initialize a new log for the current date if none exists
       setDailyLog({
         date: currentDate,
         meals: {
@@ -94,6 +99,10 @@ export default function HomePage() {
     setCurrentDate(newDate.toISOString().split('T')[0]);
   };
 
+  const handleGoalsChange = (newGoals) => {
+    setDailyGoals(newGoals);
+    saveDailyGoals(newGoals);
+  };
 
   return (
     <main className="container mx-auto p-4 sm:p-6 lg:p-8">
@@ -120,7 +129,8 @@ export default function HomePage() {
         </Link>
       </header>
 
-      <DailyProgress currentLog={dailyLog} />
+      <GoalSetter currentGoals={dailyGoals} onGoalsChange={handleGoalsChange} />
+      <DailyProgress currentLog={dailyLog} dailyGoals={dailyGoals} />
 
       <div className="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-8">
         <div className="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md">
