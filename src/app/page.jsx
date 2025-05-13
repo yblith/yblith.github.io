@@ -107,7 +107,7 @@ export default function HomePage() {
   return (
     <main className="container mx-auto p-4 sm:p-6 lg:p-8">
       <header className="mb-8 text-center">
-        <h1 className="text-4xl font-bold text-slate-800 dark:text-slate-100">Calorie & Protein Tracker</h1>
+        <h1 className="text-4xl font-bold text-slate-800 dark:text-slate-100">My Calorie & Protein Tracker</h1>
         <div className="mt-4 flex justify-center items-center space-x-3">
             <button 
                 onClick={() => handleDateChange(-1)}
