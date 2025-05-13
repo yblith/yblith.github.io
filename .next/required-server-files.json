@@ -97,7 +97,7 @@
         "transform": "lodash/{{member}}"
       }
     },
-    "outputFileTracingRoot": "/Users/erhardscholpp/CoPilot_Samples/c_tracker/yblith.github.io",
+    "outputFileTracingRoot": "/home/runner/work/yblith.github.io/yblith.github.io",
     "experimental": {
       "nodeMiddleware": false,
       "cacheLife": {
@@ -155,7 +155,7 @@
       "middlewarePrefetch": "flexible",
       "optimisticClientCache": true,
       "manualClientBasePath": false,
-      "cpus": 7,
+      "cpus": 3,
       "memoryBasedWorkersCount": false,
       "imgOptConcurrency": null,
       "imgOptTimeoutInSeconds": 7,
@@ -280,10 +280,10 @@
     "bundlePagesRouterDependencies": false,
     "configFileName": "next.config.js",
     "turbopack": {
-      "root": "/Users/erhardscholpp/CoPilot_Samples/c_tracker/yblith.github.io"
+      "root": "/home/runner/work/yblith.github.io/yblith.github.io"
     }
   },
-  "appDir": "/Users/erhardscholpp/CoPilot_Samples/c_tracker/yblith.github.io",
+  "appDir": "/home/runner/work/yblith.github.io/yblith.github.io",
   "relativeAppDir": "",
   "files": [
     ".next/routes-manifest.json",

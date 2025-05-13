@@ -1,30 +1,6 @@
 {
   "version": 4,
   "routes": {
-    "/trends": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "Next-Action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/trends",
-      "dataRoute": "/trends.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
     "/": {
       "experimentalBypassFor": [
         {
@@ -48,13 +24,37 @@
         "x-next-revalidated-tags",
         "x-next-revalidate-tag-token"
       ]
+    },
+    "/trends": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "Next-Action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/trends",
+      "dataRoute": "/trends.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
     }
   },
   "dynamicRoutes": {},
   "notFoundRoutes": [],
   "preview": {
-    "previewModeId": "383b2f0c129a788a8dbdbf5ac849f473",
-    "previewModeSigningKey": "ea6120e5b5334618023e4e263f6d2dfb07b1f4673fad3c4c0dd679d3e6cb6b5d",
-    "previewModeEncryptionKey": "63c2915add0df4b0b0bf8f07719a5219c53e3341ecadff4e35f16ae161a62cc5"
+    "previewModeId": "4c8926b288abc2e1383a1a88d9022dbb",
+    "previewModeSigningKey": "ce1de827e27ac37e8b533d4e18f47a04702fa67333707cc64ee78eb59e192d11",
+    "previewModeEncryptionKey": "d05468f45aa15314e0c9578987d833aaac96116883ab5fcdf7a2cd118b45cd60"
   }
 }

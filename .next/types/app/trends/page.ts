@@ -1,4 +1,4 @@
-// File: /Users/erhardscholpp/CoPilot_Samples/c_tracker/yblith.github.io/src/app/trends/page.jsx
+// File: /home/runner/work/yblith.github.io/yblith.github.io/src/app/trends/page.jsx
 import * as entry from '../../../../src/app/trends/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
