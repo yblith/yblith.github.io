@@ -33,18 +33,18 @@ document.addEventListener('DOMContentLoaded', () => {
         protein: parseInt(proteinGoalInput.value) || 150
     };
 
-    let meals = {
-        breakfast: [],
-        lunch: [],
-        dinner: [],
-        snacks: []
-    };
-
     let dailyTotals = {
         calories: 0,
         protein: 0
     };
 
+    // Load meals from localStorage first, then history
+    let meals = JSON.parse(localStorage.getItem('calorieTrackerMeals')) || {
+        breakfast: [],
+        lunch: [],
+        dinner: [],
+        snacks: []
+    };
     let history = JSON.parse(localStorage.getItem('calorieTrackerHistory')) || [];
 
     // --- Goal Management ---
@@ -104,12 +104,14 @@ document.addEventListener('DOMContentLoaded', () => {
     function addItemToMeal(mealType, name, calories, protein) {
         const item = { id: Date.now(), name, calories, protein };
         meals[mealType].push(item);
+        localStorage.setItem('calorieTrackerMeals', JSON.stringify(meals)); // Save meals
         renderMealList(mealType);
         updateDailyTotals();
     }
 
     function deleteItemFromMeal(mealType, itemId) {
         meals[mealType] = meals[mealType].filter(item => item.id !== itemId);
+        localStorage.setItem('calorieTrackerMeals', JSON.stringify(meals)); // Save meals
         renderMealList(mealType);
         updateDailyTotals();
     }
@@ -221,6 +223,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Reset Day ---
     function resetDay() {
         meals = { breakfast: [], lunch: [], dinner: [], snacks: [] };
+        localStorage.setItem('calorieTrackerMeals', JSON.stringify(meals)); // Clear saved meals
         Object.keys(mealLists).forEach(mealType => renderMealList(mealType));
         updateDailyTotals(); // This will also update progress displays to 0
     }
@@ -228,8 +231,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Initialization ---
     function init() {
         loadGoals(); // Load goals first
-        Object.keys(mealLists).forEach(mealType => renderMealList(mealType)); // Render empty lists
-        updateProgressDisplays(); // Update progress based on loaded goals and zero totals
+        // Meals are now loaded at their declaration, so just render them
+        Object.keys(mealLists).forEach(mealType => {
+            if(meals[mealType]) { // Ensure mealType exists in loaded meals
+                renderMealList(mealType);
+            }
+        });
+        updateDailyTotals(); // Calculate totals from potentially loaded meals
         renderDailyHistory(); // Load and display any saved history
     }
 
