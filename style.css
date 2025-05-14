@@ -1,0 +1,306 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-color: #f0f2f5;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align to top for scrollable content */
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.container {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 700px; /* Increased max-width for better layout */
+}
+
+h1 {
+    font-size: 24px;
+    color: #1c1e21;
+    text-align: left;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #dddfe2;
+    padding-bottom: 10px;
+}
+
+h2 {
+    font-size: 20px;
+    color: #1c1e21;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+h3 {
+    font-size: 16px;
+    color: #333;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+/* Progress Section */
+.progress-section {
+    background-color: #f7f7f7;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 30px;
+}
+
+.progress-item {
+    margin-bottom: 15px;
+}
+
+.progress-item:last-child {
+    margin-bottom: 0;
+}
+
+.progress-item > span:first-child { /* 'Calories' or 'Protein' text */
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    color: #007bff; /* Blue for Calories, adjust as needed */
+}
+
+.progress-item:nth-child(2) > span:first-child { /* Protein text */
+    color: #28a745; /* Green for Protein */
+}
+
+.progress-bar-container {
+    width: 100%;
+    background-color: #e9ecef;
+    border-radius: 4px;
+    height: 20px;
+    margin-bottom: 5px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: #007bff; /* Blue for Calories */
+    width: 0%; /* Initial width */
+    border-radius: 4px;
+    transition: width 0.3s ease-in-out;
+}
+
+#protein-progress {
+    background-color: #28a745; /* Green for Protein */
+}
+
+.progress-item span[id$="-stats"] {
+    font-size: 0.9em;
+    color: #606770;
+    float: right; /* Align to the right as in the image */
+}
+
+.progress-item small {
+    font-size: 0.8em;
+    color: #606770;
+    display: block; /* Make it block to clear float */
+    margin-top: 2px;
+}
+
+.goal-setter {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.goal-setter label {
+    font-size: 0.9em;
+    color: #444;
+}
+
+.goal-setter input[type="number"] {
+    padding: 5px 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 80px;
+}
+
+/* Meal Sections */
+.meal-section {
+    border: 1px solid #dddfe2;
+    padding: 20px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    background-color: #ffffff;
+}
+
+.meal-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Responsive columns */
+    gap: 15px;
+    align-items: end; /* Align items to the bottom of the cell */
+    margin-bottom: 20px;
+}
+
+.meal-form div {
+    display: flex;
+    flex-direction: column;
+}
+
+.meal-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+    color: #4b4f56;
+}
+
+.meal-form input[type="text"],
+.meal-form input[type="number"] {
+    width: 100%; /* Full width of the grid cell */
+    padding: 10px;
+    border: 1px solid #ccd0d5;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.meal-form button {
+    grid-column: 1 / -1; /* Make button span full width if on its own row */
+    padding: 12px 15px;
+    background-color: #1877f2; /* Facebook blue */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+/* Adjust button if it's not the only item in the last row */
+@media (min-width: 500px) {
+    /* Placeholder for potential future styles if button layout needs adjustment 
+       e.g., if more inputs are added and button needs specific column spanning. 
+       For now, the default grid-column: 1 / -1; handles spanning well. */
+}
+
+.meal-form button:hover {
+    background-color: #166fe5;
+}
+
+.meal-item-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.meal-item-list li {
+    background-color: #f0f2f5;
+    padding: 10px 15px;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.95em;
+}
+
+.meal-item-list li.no-items {
+    color: #606770;
+    justify-content: center;
+    background-color: transparent;
+}
+
+.meal-item-list li button.delete-btn {
+    background-color: #fa3e3e;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 6px 10px;
+    font-size: 0.85em;
+    transition: background-color 0.2s;
+}
+
+.meal-item-list li button.delete-btn:hover {
+    background-color: #e03030;
+}
+
+/* Actions Section */
+.actions-section {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-align: center; /* Center the button */
+}
+
+#end-day-button {
+    padding: 12px 25px;
+    background-color: #42b72a; /* Green button */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+#end-day-button:hover {
+    background-color: #36a420;
+}
+
+/* History Section */
+.history-section {
+    margin-top: 30px;
+    border: 1px solid #dddfe2;
+    padding: 20px;
+    border-radius: 6px;
+    background-color: #ffffff;
+}
+
+.history-section h2 {
+    margin-top: 0;
+}
+
+#daily-history-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#daily-history-list li {
+    background-color: #f0f2f5;
+    padding: 10px 15px;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    font-size: 0.95em;
+}
+
+#daily-history-list li.no-history {
+    color: #606770;
+    text-align: center;
+    background-color: transparent;
+}
+
+/* General Responsive Adjustments */
+@media (max-width: 600px) {
+    .container {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    .meal-form {
+        grid-template-columns: 1fr; /* Stack form elements on small screens */
+    }
+
+    .progress-item span[id$="-stats"] {
+        display: block; /* Stack stats below bar on small screens */
+        float: none;
+        text-align: left;
+        margin-top: 5px;
+    }
+}

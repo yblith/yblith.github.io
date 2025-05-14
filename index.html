@@ -1,1 +1,151 @@
-<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="/_next/static/css/b82e4eefa97bd618.css" data-precedence="next"/><link rel="preload" as="script" fetchPriority="low" href="/_next/static/chunks/webpack-9edee2920554d0a5.js"/><script src="/_next/static/chunks/4bd1b696-52a6696c08e3276c.js" async=""></script><script src="/_next/static/chunks/684-75fd5dfdef93026f.js" async=""></script><script src="/_next/static/chunks/main-app-4bbcd17a20da37e7.js" async=""></script><script src="/_next/static/chunks/874-8826d48c805a2f7c.js" async=""></script><script src="/_next/static/chunks/app/page-ad3692e07f3c61b4.js" async=""></script><title>Calorie Tracker</title><meta name="description" content="A simple app to track daily calorie intake."/><script>document.querySelectorAll('body link[rel="icon"], body link[rel="apple-touch-icon"]').forEach(el => document.head.appendChild(el))</script><script src="/_next/static/chunks/polyfills-42372ed130431b0a.js" noModule=""></script></head><body class="antialiased"><main class="container mx-auto p-4 sm:p-6 lg:p-8"><header class="mb-8 text-center"><h1 class="text-4xl font-bold text-slate-800 dark:text-slate-100">My Calorie &amp; Protein Tracker</h1><div class="mt-4 flex justify-center items-center space-x-3"><button class="px-4 py-2 bg-slate-200 text-slate-700 rounded-md hover:bg-slate-300 transition-colors dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-600">← Previous Day</button><p class="text-xl text-slate-600 dark:text-slate-300 font-medium">2025-05-13</p><button disabled="" class="px-4 py-2 bg-slate-200 text-slate-700 rounded-md hover:bg-slate-300 transition-colors disabled:opacity-50 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-600 dark:disabled:opacity-60">Next Day →</button></div><a class="mt-6 inline-block text-sky-600 hover:text-sky-700 dark:text-sky-400 dark:hover:text-sky-500 underline text-lg" href="/trends">View Trends</a></header><div class="p-4 border rounded-lg mb-6 bg-white dark:bg-slate-800 dark:border-slate-700 shadow-md"><h2 class="text-xl font-bold mb-4 text-gray-800 dark:text-slate-100">Set Your Daily Goals</h2><form class="space-y-4"><div><label for="caloriesGoal" class="block text-sm font-medium text-gray-700 dark:text-slate-300">Calories (kcal)</label><input type="number" id="caloriesGoal" class="mt-1 block w-full px-3 py-2 bg-white dark:bg-slate-700 border border-gray-300 dark:border-slate-600 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm text-gray-900 dark:text-slate-100" min="0" name="caloriesGoal" value="0"/></div><div><label for="proteinGoal" class="block text-sm font-medium text-gray-700 dark:text-slate-300">Protein (g)</label><input type="number" id="proteinGoal" class="mt-1 block w-full px-3 py-2 bg-white dark:bg-slate-700 border border-gray-300 dark:border-slate-600 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm text-gray-900 dark:text-slate-100" min="0" name="proteinGoal" value="0"/></div><button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-sky-600 hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500 dark:focus:ring-offset-slate-800">Set Goals</button></form></div><div class="p-4 border rounded-lg mb-6 bg-gray-50 dark:bg-slate-800 dark:border-slate-700"><h2 class="text-xl font-bold mb-4 text-gray-800 dark:text-slate-100">Daily Progress</h2><div class="space-y-3"><div><div class="flex justify-between mb-1"><span class="text-base font-medium text-blue-700 dark:text-blue-400">Calories</span><span class="text-sm font-medium text-blue-700 dark:text-blue-400">0<!-- --> / <!-- -->0<!-- --> kcal</span></div><div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-slate-700"><div class="bg-blue-600 h-2.5 rounded-full" style="width:0%"></div></div><p class="text-xs text-green-600 dark:text-green-400 mt-1">Goal reached! <!-- -->0<!-- --> kcal over.</p></div><div><div class="flex justify-between mb-1"><span class="text-base font-medium text-green-700 dark:text-green-400">Protein</span><span class="text-sm font-medium text-green-700 dark:text-green-400">0<!-- --> / <!-- -->0<!-- --> g</span></div><div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-slate-700"><div class="bg-green-600 h-2.5 rounded-full" style="width:0%"></div></div><p class="text-xs text-green-600 dark:text-green-400 mt-1">Goal reached! <!-- -->0<!-- -->g protein over.</p></div></div></div><div class="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-8"><div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md"><form class="mb-4 p-4 border rounded-lg"><h3 class="text-lg font-semibold mb-2 capitalize">Add to <!-- -->breakfast</h3><div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-2"><div><label for="breakfast-itemName" class="block text-sm font-medium text-gray-700">Item Name</label><input type="text" id="breakfast-itemName" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-black" required="" value=""/></div><div><label for="breakfast-calories" class="block text-sm font-medium text-gray-700">Calories</label><input type="number" id="breakfast-calories" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-black" required="" value=""/></div><div><label for="breakfast-protein" class="block text-sm font-medium text-gray-700">Protein (g)</label><input type="number" id="breakfast-protein" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-black" required="" value=""/></div></div><button type="submit" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Add Item</button></form><div class="p-4 border rounded-lg mb-4"><h3 class="text-lg font-semibold capitalize">breakfast</h3><p class="text-sm text-gray-500">No items added yet.</p></div></div><div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md"><form class="mb-4 p-4 border rounded-lg"><h3 class="text-lg font-semibold mb-2 capitalize">Add to <!-- -->lunch</h3><div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-2"><div><label for="lunch-itemName" class="block text-sm font-medium text-gray-700">Item Name</label><input type="text" id="lunch-itemName" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-black" required="" value=""/></div><div><label for="lunch-calories" class="block text-sm font-medium text-gray-700">Calories</label><input type="number" id="lunch-calories" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-black" required="" value=""/></div><div><label for="lunch-protein" class="block text-sm font-medium text-gray-700">Protein (g)</label><input type="number" id="lunch-protein" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-black" required="" value=""/></div></div><button type="submit" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Add Item</button></form><div class="p-4 border rounded-lg mb-4"><h3 class="text-lg font-semibold capitalize">lunch</h3><p class="text-sm text-gray-500">No items added yet.</p></div></div><div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md"><form class="mb-4 p-4 border rounded-lg"><h3 class="text-lg font-semibold mb-2 capitalize">Add to <!-- -->dinner</h3><div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-2"><div><label for="dinner-itemName" class="block text-sm font-medium text-gray-700">Item Name</label><input type="text" id="dinner-itemName" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-black" required="" value=""/></div><div><label for="dinner-calories" class="block text-sm font-medium text-gray-700">Calories</label><input type="number" id="dinner-calories" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-black" required="" value=""/></div><div><label for="dinner-protein" class="block text-sm font-medium text-gray-700">Protein (g)</label><input type="number" id="dinner-protein" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-black" required="" value=""/></div></div><button type="submit" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Add Item</button></form><div class="p-4 border rounded-lg mb-4"><h3 class="text-lg font-semibold capitalize">dinner</h3><p class="text-sm text-gray-500">No items added yet.</p></div></div><div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md"><form class="mb-4 p-4 border rounded-lg"><h3 class="text-lg font-semibold mb-2 capitalize">Add to <!-- -->snacks</h3><div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-2"><div><label for="snacks-itemName" class="block text-sm font-medium text-gray-700">Item Name</label><input type="text" id="snacks-itemName" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-black" required="" value=""/></div><div><label for="snacks-calories" class="block text-sm font-medium text-gray-700">Calories</label><input type="number" id="snacks-calories" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-black" required="" value=""/></div><div><label for="snacks-protein" class="block text-sm font-medium text-gray-700">Protein (g)</label><input type="number" id="snacks-protein" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-black" required="" value=""/></div></div><button type="submit" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Add Item</button></form><div class="p-4 border rounded-lg mb-4"><h3 class="text-lg font-semibold capitalize">snacks</h3><p class="text-sm text-gray-500">No items added yet.</p></div></div></div></main><!--$--><!--/$--><!--$--><!--/$--><script src="/_next/static/chunks/webpack-9edee2920554d0a5.js" async=""></script><script>(self.__next_f=self.__next_f||[]).push([0])</script><script>self.__next_f.push([1,"1:\"$Sreact.fragment\"\n2:I[7555,[],\"\"]\n3:I[1295,[],\"\"]\n4:I[894,[],\"ClientPageRoot\"]\n5:I[6452,[\"874\",\"static/chunks/874-8826d48c805a2f7c.js\",\"974\",\"static/chunks/app/page-ad3692e07f3c61b4.js\"],\"default\"]\n8:I[9665,[],\"MetadataBoundary\"]\na:I[9665,[],\"OutletBoundary\"]\nd:I[4911,[],\"AsyncMetadataOutlet\"]\nf:I[9665,[],\"ViewportBoundary\"]\n11:I[6614,[],\"\"]\n:HL[\"/_next/static/css/b82e4eefa97bd618.css\",\"style\"]\n"])</script><script>self.__next_f.push([1,"0:{\"P\":null,\"b\":\"woaIeXtaHzw8arvsBoSkc\",\"p\":\"\",\"c\":[\"\",\"\"],\"i\":false,\"f\":[[[\"\",{\"children\":[\"__PAGE__\",{}]},\"$undefined\",\"$undefined\",true],[\"\",[\"$\",\"$1\",\"c\",{\"children\":[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/css/b82e4eefa97bd618.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}]],[\"$\",\"html\",null,{\"lang\":\"en\",\"children\":[\"$\",\"body\",null,{\"className\":\"antialiased\",\"children\":[\"$\",\"$L2\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L3\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[[\"$\",\"title\",null,{\"children\":\"404: This page could not be found.\"}],[\"$\",\"div\",null,{\"style\":{\"fontFamily\":\"system-ui,\\\"Segoe UI\\\",Roboto,Helvetica,Arial,sans-serif,\\\"Apple Color Emoji\\\",\\\"Segoe UI Emoji\\\"\",\"height\":\"100vh\",\"textAlign\":\"center\",\"display\":\"flex\",\"flexDirection\":\"column\",\"alignItems\":\"center\",\"justifyContent\":\"center\"},\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"style\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\"}}],[\"$\",\"h1\",null,{\"className\":\"next-error-h1\",\"style\":{\"display\":\"inline-block\",\"margin\":\"0 20px 0 0\",\"padding\":\"0 23px 0 0\",\"fontSize\":24,\"fontWeight\":500,\"verticalAlign\":\"top\",\"lineHeight\":\"49px\"},\"children\":404}],[\"$\",\"div\",null,{\"style\":{\"display\":\"inline-block\"},\"children\":[\"$\",\"h2\",null,{\"style\":{\"fontSize\":14,\"fontWeight\":400,\"lineHeight\":\"49px\",\"margin\":0},\"children\":\"This page could not be found.\"}]}]]}]}]],[]],\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]}]}]]}],{\"children\":[\"__PAGE__\",[\"$\",\"$1\",\"c\",{\"children\":[[\"$\",\"$L4\",null,{\"Component\":\"$5\",\"searchParams\":{},\"params\":{},\"promises\":[\"$@6\",\"$@7\"]}],[\"$\",\"$L8\",null,{\"children\":\"$L9\"}],null,[\"$\",\"$La\",null,{\"children\":[\"$Lb\",\"$Lc\",[\"$\",\"$Ld\",null,{\"promise\":\"$@e\"}]]}]]}],{},null,false]},null,false],[\"$\",\"$1\",\"h\",{\"children\":[null,[\"$\",\"$1\",\"K2gnpk_-0Dlrh9uySWGPT\",{\"children\":[[\"$\",\"$Lf\",null,{\"children\":\"$L10\"}],null]}],null]}],false]],\"m\":\"$undefined\",\"G\":[\"$11\",\"$undefined\"],\"s\":false,\"S\":true}\n"])</script><script>self.__next_f.push([1,"12:\"$Sreact.suspense\"\n13:I[4911,[],\"AsyncMetadata\"]\n6:{}\n7:{}\n9:[\"$\",\"$12\",null,{\"fallback\":null,\"children\":[\"$\",\"$L13\",null,{\"promise\":\"$@14\"}]}]\n"])</script><script>self.__next_f.push([1,"c:null\n"])</script><script>self.__next_f.push([1,"10:[[\"$\",\"meta\",\"0\",{\"charSet\":\"utf-8\"}],[\"$\",\"meta\",\"1\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}]]\nb:null\n"])</script><script>self.__next_f.push([1,"14:{\"metadata\":[[\"$\",\"title\",\"0\",{\"children\":\"Calorie Tracker\"}],[\"$\",\"meta\",\"1\",{\"name\":\"description\",\"content\":\"A simple app to track daily calorie intake.\"}]],\"error\":null,\"digest\":\"$undefined\"}\ne:{\"metadata\":\"$14:metadata\",\"error\":null,\"digest\":\"$undefined\"}\n"])</script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calorie Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Daily Progress</h1>
+        <div class="progress-section">
+            <div class="progress-item">
+                <div class="goal-setter">
+                    <label for="calories-goal">Set Calorie Goal:</label>
+                    <input type="number" id="calories-goal" value="2000">
+                </div>
+                <span>Calories</span>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="calories-progress"></div>
+                </div>
+                <span id="calories-stats">0 / 2000 kcal</span>
+                <small id="calories-remaining">2000 kcal remaining</small>
+            </div>
+            <div class="progress-item">
+                <div class="goal-setter">
+                    <label for="protein-goal">Set Protein Goal (g):</label>
+                    <input type="number" id="protein-goal" value="150">
+                </div>
+                <span>Protein</span>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="protein-progress"></div>
+                </div>
+                <span id="protein-stats">0 / 150 g</span>
+                <small id="protein-remaining">150g protein remaining</small>
+            </div>
+        </div>
+
+        <div class="meal-section">
+            <h2>Add To Breakfast</h2>
+            <form id="breakfast-form" class="meal-form">
+                <div>
+                    <label for="breakfast-item-name">Item Name</label>
+                    <input type="text" id="breakfast-item-name" required>
+                </div>
+                <div>
+                    <label for="breakfast-calories">Calories</label>
+                    <input type="number" id="breakfast-calories" required>
+                </div>
+                <div>
+                    <label for="breakfast-protein">Protein (g)</label>
+                    <input type="number" id="breakfast-protein" required>
+                </div>
+                <button type="submit">Add Item</button>
+            </form>
+            <h3>Breakfast</h3>
+            <ul id="breakfast-list" class="meal-item-list">
+                <!-- Breakfast items will be added here -->
+                <li class="no-items">No items added yet.</li>
+            </ul>
+        </div>
+
+        <div class="meal-section">
+            <h2>Add To Lunch</h2>
+            <form id="lunch-form" class="meal-form">
+                <div>
+                    <label for="lunch-item-name">Item Name</label>
+                    <input type="text" id="lunch-item-name" required>
+                </div>
+                <div>
+                    <label for="lunch-calories">Calories</label>
+                    <input type="number" id="lunch-calories" required>
+                </div>
+                <div>
+                    <label for="lunch-protein">Protein (g)</label>
+                    <input type="number" id="lunch-protein" required>
+                </div>
+                <button type="submit">Add Item</button>
+            </form>
+            <h3>Lunch</h3>
+            <ul id="lunch-list" class="meal-item-list">
+                <!-- Lunch items will be added here -->
+                <li class="no-items">No items added yet.</li>
+            </ul>
+        </div>
+
+        <div class="meal-section">
+            <h2>Add To Dinner</h2>
+            <form id="dinner-form" class="meal-form">
+                <div>
+                    <label for="dinner-item-name">Item Name</label>
+                    <input type="text" id="dinner-item-name" required>
+                </div>
+                <div>
+                    <label for="dinner-calories">Calories</label>
+                    <input type="number" id="dinner-calories" required>
+                </div>
+                <div>
+                    <label for="dinner-protein">Protein (g)</label>
+                    <input type="number" id="dinner-protein" required>
+                </div>
+                <button type="submit">Add Item</button>
+            </form>
+            <h3>Dinner</h3>
+            <ul id="dinner-list" class="meal-item-list">
+                <!-- Dinner items will be added here -->
+                <li class="no-items">No items added yet.</li>
+            </ul>
+        </div>
+
+        <div class="meal-section">
+            <h2>Add To Snacks</h2>
+            <form id="snacks-form" class="meal-form">
+                <div>
+                    <label for="snacks-item-name">Item Name</label>
+                    <input type="text" id="snacks-item-name" required>
+                </div>
+                <div>
+                    <label for="snacks-calories">Calories</label>
+                    <input type="number" id="snacks-calories" required>
+                </div>
+                <div>
+                    <label for="snacks-protein">Protein (g)</label>
+                    <input type="number" id="snacks-protein" required>
+                </div>
+                <button type="submit">Add Item</button>
+            </form>
+            <h3>Snacks</h3>
+            <ul id="snacks-list" class="meal-item-list">
+                <!-- Snacks items will be added here -->
+                <li class="no-items">No items added yet.</li>
+            </ul>
+        </div>
+
+        <div class="actions-section">
+            <button id="end-day-button">End Day & Save Progress</button>
+        </div>
+
+        <div class="history-section">
+            <h2>Daily History</h2>
+            <ul id="daily-history-list">
+                <!-- Daily history will be populated here -->
+                <li class="no-history">No history yet.</li>
+            </ul>
+        </div>
+        <!-- Overall total calories display can be removed or repurposed if progress bars cover it -->
+        <!-- <h3>Total Calories: <span id="total-calories">0</span></h3> -->
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
